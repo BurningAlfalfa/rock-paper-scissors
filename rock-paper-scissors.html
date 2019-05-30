@@ -1,0 +1,62 @@
+<html>
+    <script>
+        var computerScore = 0;
+        var playerScore = 0;
+        var games = 0;
+        function  singleRound(computerSelection, playerSelection){
+            switch(computerSelection){
+                case 0: computerSelection = "rock";
+                break;
+
+                case 1: computerSelection = "papaer";
+                break;
+
+                case 2: computerSelection = " scissors";
+                break;
+            }
+       
+           
+
+            if(computerSelection == playerSelection){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". It's a tie.");
+            }else if(computerSelection == "rock" && playerSelection == "paper"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Won!");
+                playerScore++;
+            }else if(computerSelection == "rock" && playerSelection == "scissors"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Lost.");
+                computerScore++;
+            }else if(computerSelection == "paper" && playerSelection == "scissors"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Won!");
+                playerScore++;
+            }else if(computerSelection == "paper" && playerSelection == "rock"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Lost.");
+                computerScore++;
+            }else if(computerSelection == "scissors" && playerSelection == "rock"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Won!");
+                playerScore++;
+            }else if(computerSelection == "scissors" && playerSelection == "paper"){
+                console.log("Computer chose " + computerSelection + " and you chose " + playerSelection+". You Lost.");
+                computerScore++;
+            } 
+            
+        }
+        function getComputerChoice(){
+            return Math.floor(Math.random() * 3);
+        }
+
+        function game(){
+        playerSelection = prompt("Make your pick (Rock, Paper, or Scissors)").toLowerCase();            
+        computerSelection = getComputerChoice();
+        singleRound(playerSelection,computerSelection);
+        games++;
+    
+        }   
+        while (games < 5){
+            game();
+        }     
+ 
+        console.log("Player score: " + playerScore + "\n Computer Score: " + computerScore); 
+
+
+    </script>
+</html>
